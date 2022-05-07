@@ -43,7 +43,14 @@
                     @character.Description
                 </td>
                 <td width="15%">
-                    
+                    @using (Html.BeginForm(
+                        actionName:"Favorite",
+                        controllerName:"Characters",
+                        routeValues:  new { characterId = character.Id }, 
+                        FormMethod.Post))
+                    {
+                        <button>Favoritar</button>
+                    }
                 </td>
             </tr>
         }

@@ -21,7 +21,6 @@ namespace DesafioGClaims.Controllers
             _userAuth = userAuth;
         }
 
-        public object IsRegistered { get; private set; }
         [AllowAnonymous]
         public ActionResult Register()
         {
@@ -30,20 +29,20 @@ namespace DesafioGClaims.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(UserFormViewModel user)
+        public IActionResult Register(UserFormViewModel userForm)
         {
             if (!ModelState.IsValid)
                 return View(new UserFormViewModel{ Message = "Usuário inválido" });
 
-            if (_userAuth.IsRegistered(user.Username))
+            if (_userAuth.IsRegistered(userForm.Username))
                 return View(new UserFormViewModel{ Message = "Usuário já existe" });
 
-            _userAuth.RegisterUser(user.Username, user.Password);
+            _userAuth.RegisterUser(userForm.Username, userForm.Password);
 
             return RedirectToAction("Login");
         }
         [AllowAnonymous]
-        public ActionResult Login()
+        public IActionResult Login()
         {
             return View(new UserFormViewModel());
         }
@@ -58,11 +57,14 @@ namespace DesafioGClaims.Controllers
             if (!_userAuth.IsRegistered(userLogin.Username))
                 return View(new UserFormViewModel { Message = "Usuário não registrado" });
 
-            if (_userAuth.Authenticate(userLogin.Username, userLogin.Password))
+            var userDb = _userAuth.Authenticate(userLogin.Username, userLogin.Password);
+
+            if (userDb != null)
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, userLogin.Username),
+                    new Claim(ClaimTypes.Name, userDb.Username),
+                    new Claim(ClaimTypes.NameIdentifier, userDb.Id.ToString()),
                     new Claim(ClaimTypes.Role, "LoggedUser"),
                 };
 

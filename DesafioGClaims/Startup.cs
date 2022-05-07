@@ -33,6 +33,7 @@ namespace DesafioGClaims
             services.AddScoped<ICharacters, Characters>();
             services.AddScoped<IRequestApi, RequestApi>();
             services.AddScoped<IUserAuthentication, UserAuthentication>();
+            services.AddScoped<IFavoriteCharacter, FavoriteCharacter>();
             services.AddControllersWithViews();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

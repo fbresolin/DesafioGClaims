@@ -10,7 +10,7 @@ namespace DesafioGClaims.DataService.DataService
 {
     public class UserAuthentication : ConnectionConfig, IUserAuthentication
     {
-        public bool Authenticate(string Username, string Password)
+        public User Authenticate(string Username, string Password)
         {
             using (var connection = new SqlConnection(ConnectionString))
             {
@@ -19,13 +19,40 @@ namespace DesafioGClaims.DataService.DataService
                 {
                     command.CommandText = $"SELECT password FROM users WHERE username=@username";
                     command.Parameters.AddWithValue("@username", Username);
-                    var result = (string)command.ExecuteScalar();
+                    var password = (string)command.ExecuteScalar();
 
                     var hash = CreateHash($"{Password}{Salt}");
-                    if (hash == result)
-                        return true;
+                    if (hash == password)
+                    {
+                        command.CommandText = $"SELECT id FROM users WHERE username=@username";
+                        var id = (int)command.ExecuteScalar();
+                        return new User
+                        {
+                            Id = id,
+                            Username = Username
+                        };
+                    }
                     else
-                        return false;
+                        return null;
+                }
+            }
+        }
+
+        public int GetUserId(string Username)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = $"SELECT id FROM users WHERE username=@username";
+                    command.Parameters.AddWithValue("@username", Username);
+                    var result = command.ExecuteScalar();
+
+                    if (result != null)
+                        return Convert.ToInt32(result);
+                    else
+                        return 0;
                 }
             }
         }
