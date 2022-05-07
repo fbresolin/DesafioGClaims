@@ -21,7 +21,7 @@ namespace DesafioGClaims.DataService.DataService
                     if (result != 0)
                         return false;
 
-                    command.CommandText = $"SELECT COUNT(userid) FROM characters WHERE characterid={CharacterId}";
+                    command.CommandText = $"SELECT COUNT(characterid) FROM characters WHERE userid={UserId}";
                     result = Convert.ToInt32(command.ExecuteScalar());
                     if (result >= 5)
                         return false;
@@ -55,7 +55,16 @@ namespace DesafioGClaims.DataService.DataService
 
         public bool UnFavoriteChar(int UserId, int CharacterId)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = $"DELETE FROM characters WHERE (userid={UserId} AND characterid={CharacterId})";
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+            }
         }
     }
 }
