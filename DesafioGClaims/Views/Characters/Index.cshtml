@@ -1,4 +1,4 @@
-﻿@model DesafioGClaims.MarvelApi.Schemas.CharacterDataWrapper
+﻿@model DesafioGClaims.ViewModels.IndexCharViewModel
 @{
     ViewData["Title"] = "Index";
 }
@@ -29,7 +29,33 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var character in Model.Data.Results)
+        @foreach (var character in Model.FavoriteCharacterDataWrapper)
+        {
+            <tr>
+                <td width="20%">
+                    @Html.ActionLink(linkText: character.Data.Results[0].Name,
+                        actionName: "Details",
+                        controllerName: "Characters",
+                        routeValues: new { characterId = character.Data.Results[0].Id },
+                        htmlAttributes: new { @class = "btn btn-link" })
+                </td>
+                <td width="50%">
+                    @character.Data.Results[0].Description
+                </td>
+                <td width="15%">
+                    @using (Html.BeginForm(
+                        actionName:"UnFavorite",
+                        controllerName:"Characters",
+                        routeValues:  new { characterId = character.Data.Results[0].Id }, 
+                        FormMethod.Post))
+                    {
+                        <button>Desfavoritar</button>
+                    }
+                </td>
+            </tr>
+        }
+
+        @foreach (var character in Model.GeneralCharacterDataWrapper.Data.Results)
         {
             <tr>
                 <td width="20%">
@@ -58,5 +84,5 @@
 </table>
 
 <footer>
-    @Html.Raw(Model.AttributionHTML)
+    @Html.Raw(Model.GeneralCharacterDataWrapper.AttributionHTML)
 </footer>

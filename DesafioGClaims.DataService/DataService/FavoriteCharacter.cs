@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DesafioGClaims.DataService.DataService
 {
@@ -32,7 +33,27 @@ namespace DesafioGClaims.DataService.DataService
             }
         }
 
-        public bool UnFavoriteChar(int CharacterId)
+        public async Task<List<int>> GetFavorites(int UserId)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = $"SELECT characterid FROM characters WHERE userid={UserId}";
+                    var data = await command.ExecuteReaderAsync();
+                    var characterIds = new List<int>();
+                    while (data.Read())
+                    {
+                        int characterId = data.GetInt32(0);
+                        characterIds.Add(characterId);
+                    }
+                    return characterIds;
+                }
+            }
+        }
+
+        public bool UnFavoriteChar(int UserId, int CharacterId)
         {
             throw new NotImplementedException();
         }

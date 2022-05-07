@@ -1,5 +1,6 @@
 ﻿using DesafioGClaims.DataService.IDataService;
 using DesafioGClaims.MarvelApi.IMarvelApi;
+using DesafioGClaims.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -24,14 +25,23 @@ namespace DesafioGClaims.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            var characterDataWrapper = await _characters.GetCharacters();
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login");
 
-            if (characterDataWrapper == null)
-                return View("~/Views/Shared/Error.cshtml");
+            var userId = _userAuth.GetUserId(User.Identity.Name);
+            var favoriteIds = await _favoriteChar.GetFavorites(userId);
 
-            // criar um viewmodel para organizar a resposta da api
+            var indexViewModel = new IndexCharViewModel();
+            foreach (var favoriteId in favoriteIds)
+            {
+                var characterWrapper = await _characters.GetCharacter(favoriteId);
+                indexViewModel.FavoriteCharacterDataWrapper
+                    .Add(characterWrapper);
+            };
 
-            return View(characterDataWrapper);
+            indexViewModel.GeneralCharacterDataWrapper = await _characters.GetCharacters();
+
+            return View(indexViewModel);
         }
         [Authorize]
         public async Task<IActionResult> Details(int characterId)
@@ -45,7 +55,6 @@ namespace DesafioGClaims.Controllers
         }
         [Authorize]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Favorite(int characterId)
         {
             if (!User.Identity.IsAuthenticated)
@@ -53,6 +62,18 @@ namespace DesafioGClaims.Controllers
 
             var userId = _userAuth.GetUserId(User.Identity.Name);
             _favoriteChar.FavoriteChar(userId, characterId);
+
+            return RedirectToAction("Index");
+        }
+        [Authorize]
+        [HttpPost]
+        public IActionResult UnFavorite(int characterId)
+        {
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login");
+
+            var userId = _userAuth.GetUserId(User.Identity.Name);
+            _favoriteChar.UnFavoriteChar(userId, characterId);
 
             return RedirectToAction("Index");
         }
