@@ -1,0 +1,13 @@
+﻿@model DesafioGClaims.MarvelApi.Schemas.CharacterDataWrapper
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Personagem: @Model.Data.Results[0].Name</h2>
+
+<img src="@Model.Data.Results[0].Thumbnail"/>
+
+<p>Description: @Model.Data.Results[0].Description</p>
+
+<p>Comics: @Model.Data.Results[0].Comics</p>
+

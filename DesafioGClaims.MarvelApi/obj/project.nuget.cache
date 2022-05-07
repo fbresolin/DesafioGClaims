@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "CeMkrdchmn261PAVFBI6997PsnsxHZmdTWmckSBaYE7nJfFGwGpLkOrJBEQpGSI3kVhJ7OaVUwDmoeMl480yPA==",
+  "success": true,
+  "projectFilePath": "D:\\Users\\breso\\Documents\\DesafioGClaims\\DesafioGClaims.MarvelApi\\DesafioGClaims.MarvelApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\breso\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bem vindo</h1>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <p>Para acessar os personagens da Marvel é necessário se registrar e logar usuário</p>
+    }
+    else
+    {
+        <p>Para pesquisar e favoritar os personagens da Marvel clique em Personagens</p>
+    }
+</div>

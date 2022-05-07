@@ -1,0 +1,9 @@
+D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.MarvelApi\bin\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.deps.json
+D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.MarvelApi\bin\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.dll
+D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.MarvelApi\bin\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.pdb
+D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.AssemblyInfoInputs.cache
+D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.AssemblyInfo.cs
+D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.csproj.CoreCompileInputs.cache
+D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.dll
+D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.pdb

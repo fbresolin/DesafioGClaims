@@ -1,0 +1,55 @@
+﻿@model DesafioGClaims.MarvelApi.Schemas.CharacterDataWrapper
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Lista de heróis </h2>
+        </div>
+    </div>
+    <br /><br />
+</div>
+
+
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Personagem
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Favoritar
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var character in Model.Data.Results)
+        {
+            <tr>
+                <td width="20%">
+                    @Html.ActionLink(linkText: character.Name,
+                        actionName: "Details",
+                        controllerName: "Characters",
+                        routeValues: new { characterId = character.Id },
+                        htmlAttributes: new { @class = "btn btn-link" })
+                </td>
+                <td width="50%">
+                    @character.Description
+                </td>
+                <td width="15%">
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<footer>
+    @Html.Raw(Model.AttributionHTML)
+</footer>
