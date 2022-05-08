@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Linq;
+using System;
 
 namespace DesafioGClaims.Controllers
 {
@@ -23,35 +25,71 @@ namespace DesafioGClaims.Controllers
             _favoriteChar = favoriteChar;
         }
         [Authorize]
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             if (!User.Identity.IsAuthenticated)
                 return RedirectToAction("Login");
 
+            var indexViewModel = new IndexCharViewModel();
+
+            var characterWrapper = await _characters.GetCharacters();
+            indexViewModel.GeneralCharacters = characterWrapper.Data.Results;
+            
             var userId = _userAuth.GetUserId(User.Identity.Name);
             var favoriteIds = await _favoriteChar.GetFavorites(userId);
-
-            var indexViewModel = new IndexCharViewModel();
+            
             foreach (var favoriteId in favoriteIds)
             {
-                var characterWrapper = await _characters.GetCharacter(favoriteId);
-                indexViewModel.FavoriteCharacterDataWrapper
-                    .Add(characterWrapper);
+                indexViewModel.GeneralCharacters
+                    .RemoveAll(c => c.Id == favoriteId);
+                var favCharacter = await _characters.GetCharacter(favoriteId);
+                indexViewModel.FavoriteCharacters
+                    .Add(favCharacter.Data.Results.First());
             };
-
-            indexViewModel.GeneralCharacterDataWrapper = await _characters.GetCharacters();
+            if (favoriteIds.Count > 0)
+                indexViewModel.FavoriteCharacters
+                    .Sort((x, y) => x.Name
+                    .CompareTo(y.Name));
 
             return View(indexViewModel);
         }
         [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> SearchCharacters(string searchString)
+        {
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login");
+
+            var indexViewModel = new IndexCharViewModel();
+
+            var characterWrapper = await _characters.SearchCharacter(searchString);
+            indexViewModel.GeneralCharacters = characterWrapper.Data.Results;
+
+            return View("Index", indexViewModel);
+        }
+        [Authorize]
+        [HttpGet]
         public async Task<IActionResult> Details(int characterId)
         {
-            var characterDataWrapper = await _characters.GetCharacter(characterId);
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login");
 
-            if (characterDataWrapper == null)
+            var characterWrapper = await _characters.GetCharacter(characterId);
+
+            if (characterWrapper == null)
                 return View("~/Views/Shared/Error.cshtml");
 
-            return View(characterDataWrapper);
+            var characterViewModel = new CharacterDetailsViewModel();
+            characterViewModel.Character = characterWrapper.Data.Results.First();
+
+            var comicWrapper = await _characters.GetCharacterComics(characterId);
+            for (int i = 0; i < 5 && i < comicWrapper.Data.Count; i++)
+            {
+                characterViewModel.ComicList.Add(comicWrapper.Data.Results[i]);
+            };
+
+            return View(characterViewModel);
         }
         [Authorize]
         [HttpPost]

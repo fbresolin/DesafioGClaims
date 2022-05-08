@@ -22,13 +22,13 @@ namespace DesafioGClaims.Controllers
         }
 
         [AllowAnonymous]
+        [HttpGet]
         public ActionResult Register()
         {
             return View(new UserFormViewModel());
         }
         [AllowAnonymous]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Register(UserFormViewModel userForm)
         {
             if (!ModelState.IsValid)
@@ -42,13 +42,13 @@ namespace DesafioGClaims.Controllers
             return RedirectToAction("Login");
         }
         [AllowAnonymous]
+        [HttpGet]
         public IActionResult Login()
         {
             return View(new UserFormViewModel());
         }
         [AllowAnonymous]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(UserFormViewModel userLogin)
         {
             if (!ModelState.IsValid)
@@ -99,12 +99,12 @@ namespace DesafioGClaims.Controllers
                     CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity),
                     authProperties);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Characters");
             }
 
             return View(new UserFormViewModel{ Message = "Senha incorreta" });
         }
-       
+        [HttpGet]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

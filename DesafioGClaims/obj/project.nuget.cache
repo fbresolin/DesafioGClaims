@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y3D71xt/NpPFfzCR6R9+/Ze0Wp82G9T5oBMO717u9mMydQ7X51h/q6fRFhpc3/y5jYlFP7VhJs613jKMJY5cFQ==",
+  "dgSpecHash": "EtB889APySdYKrdLv/ksLOhQ/k+hy1QJ3jPmV/XSvXJeGKr80gnLUGt3jRIYM88VyyuJuamnI6bi6MCMQ1UzcQ==",
   "success": true,
-  "projectFilePath": "D:\\Users\\breso\\Documents\\DesafioGClaims\\DesafioGClaims\\DesafioGClaims.csproj",
+  "projectFilePath": "C:\\Users\\breso\\DesafioGClaims\\DesafioGClaims\\DesafioGClaims.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\breso\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\breso\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

@@ -1,4 +1,7 @@
-﻿using DesafioGClaims.MarvelApi.IMarvelApi;
+﻿using DesafioGClaims.MarvelApi.ComicSchemas;
+using DesafioGClaims.MarvelApi.IMarvelApi;
+using DesafioGClaims.MarvelApi.Schemas;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -15,7 +18,7 @@ namespace DesafioGClaims.MarvelApi.MarvelApi
         private readonly string _privateApiKey = "cc362c2d15d3bce7cd50e37e6c2ea632fdb260cd";
         private static readonly HttpClient _client = new HttpClient();
 
-        public async Task<HttpResponseMessage> RequestApiUrl(string apiString)
+        public async Task<HttpResponseMessage> RequestApiUrl(string apiString, string additionalQuery)
         {
             // ts - a timestamp(or other long string which can change on a request - by - request basis)
             string timestamp = (DateTime.Now.ToUniversalTime() - new DateTime(1970, 1, 1)).TotalSeconds.ToString();
@@ -24,11 +27,33 @@ namespace DesafioGClaims.MarvelApi.MarvelApi
             string hash = CreateHash($"{timestamp}{_privateApiKey}{_publicApiKey}");
 
             // http://gateway.marvel.com/v1/public/comics?ts=1&apikey=1234&hash=ffd275c5130566a2916217b101f26150 (the hash value is the md5 digest of 1abcd1234)
-            string requestUrl = $"{_baseUrl}{apiString}?ts={timestamp}&apikey={_publicApiKey}&hash={hash}";
+            string requestUrl = $"{_baseUrl}{apiString}?ts={timestamp}&apikey={_publicApiKey}&hash={hash}{additionalQuery}";
 
             var uri = new Uri(requestUrl);
 
             return await _client.GetAsync(uri);
+        }
+        public async Task<CharacterDataWrapper> ExecuteCharRequest(string request, string additionalQuery = "")
+        {
+            var response = await RequestApiUrl(request, additionalQuery);
+
+            if (!response.IsSuccessStatusCode)
+                return null;
+
+            var json = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<CharacterDataWrapper>(json);
+        }
+        public async Task<ComicDataWrapper> ExecuteComicRequest(string request, string additionalQuery = "")
+        {
+            var response = await RequestApiUrl(request, additionalQuery);
+
+            if (!response.IsSuccessStatusCode)
+                return null;
+
+            var json = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<ComicDataWrapper>(json);
         }
         private string CreateHash(string input)
         {

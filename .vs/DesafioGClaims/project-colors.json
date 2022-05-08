@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a7837d6d-13e2-4737-9cd9-6e2e8d20c188": {
+      "ProjectGuid": "a7837d6d-13e2-4737-9cd9-6e2e8d20c188",
+      "DisplayName": "DesafioGClaims",
+      "ColorIndex": 0
+    },
+    "25a4fc1b-bc50-446f-a604-690a9491efe8": {
+      "ProjectGuid": "25a4fc1b-bc50-446f-a604-690a9491efe8",
+      "DisplayName": "DesafioGClaims.Entities",
+      "ColorIndex": 1
+    },
+    "6d3d5db2-ebd2-4a08-89b3-3ca9d777b7f1": {
+      "ProjectGuid": "6d3d5db2-ebd2-4a08-89b3-3ca9d777b7f1",
+      "DisplayName": "DesafioGClaims.MarvelApi",
+      "ColorIndex": 2
+    },
+    "40be5c62-7c71-47de-b797-b830dbfff045": {
+      "ProjectGuid": "40be5c62-7c71-47de-b797-b830dbfff045",
+      "DisplayName": "DesafioGClaims.DataService",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 4
+}

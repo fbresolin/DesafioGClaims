@@ -1,9 +1,6 @@
-﻿using DesafioGClaims.MarvelApi.IMarvelApi;
+﻿using DesafioGClaims.MarvelApi.ComicSchemas;
+using DesafioGClaims.MarvelApi.IMarvelApi;
 using DesafioGClaims.MarvelApi.Schemas;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DesafioGClaims.MarvelApi.MarvelApi
@@ -17,26 +14,22 @@ namespace DesafioGClaims.MarvelApi.MarvelApi
         }
         public async Task<CharacterDataWrapper> GetCharacter(int characterId)
         {
-            var response = await _request.RequestApiUrl($"/v1/public/characters/{characterId}");
+            return await _request.ExecuteCharRequest($"/v1/public/characters/{characterId}");            
+        }
 
-            if (!response.IsSuccessStatusCode)
-                return null;
-
-            var json = await response.Content.ReadAsStringAsync();
-
-            return JsonConvert.DeserializeObject<CharacterDataWrapper>(json); ;
+        public async Task<ComicDataWrapper> GetCharacterComics(int characterId)
+        {
+            return await _request.ExecuteComicRequest($"/v1/public/characters/{characterId}/comics");
         }
 
         public async Task<CharacterDataWrapper> GetCharacters()
         {
-            var response = await _request.RequestApiUrl($"/v1/public/characters");
+            return await _request.ExecuteCharRequest("/v1/public/characters", "&orderBy=name");
+        }
 
-            if (!response.IsSuccessStatusCode)
-                return null;
-
-            var json = await response.Content.ReadAsStringAsync();
-
-            return JsonConvert.DeserializeObject<CharacterDataWrapper>(json);
+        public async Task<CharacterDataWrapper> SearchCharacter(string SearchString)
+        {
+            return await _request.ExecuteCharRequest("/v1/public/characters", $"&nameStartsWith={SearchString}&orderBy=name");
         }
     }
 }

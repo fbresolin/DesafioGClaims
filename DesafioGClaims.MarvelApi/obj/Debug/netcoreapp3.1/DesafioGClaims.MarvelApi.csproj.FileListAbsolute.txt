@@ -7,3 +7,13 @@ D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netco
 D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.csproj.CoreCompileInputs.cache
 D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.dll
 D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.pdb
+C:\Users\breso\DesafioGClaims\DesafioGClaims.MarvelApi\bin\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.deps.json
+C:\Users\breso\DesafioGClaims\DesafioGClaims.MarvelApi\bin\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.dll
+C:\Users\breso\DesafioGClaims\DesafioGClaims.MarvelApi\bin\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.pdb
+C:\Users\breso\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.csproj.AssemblyReference.cache
+C:\Users\breso\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\breso\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.AssemblyInfoInputs.cache
+C:\Users\breso\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.AssemblyInfo.cs
+C:\Users\breso\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.csproj.CoreCompileInputs.cache
+C:\Users\breso\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.dll
+C:\Users\breso\DesafioGClaims\DesafioGClaims.MarvelApi\obj\Debug\netcoreapp3.1\DesafioGClaims.MarvelApi.pdb

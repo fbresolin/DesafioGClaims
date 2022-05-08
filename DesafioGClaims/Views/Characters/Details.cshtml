@@ -1,13 +1,28 @@
-﻿@model DesafioGClaims.MarvelApi.Schemas.CharacterDataWrapper
+﻿@model DesafioGClaims.ViewModels.CharacterDetailsViewModel
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Personagem: @Model.Data.Results[0].Name</h2>
+<h2 class="h2">Personagem: @Model.Character.Name</h2>
 
-<img src="@Model.Data.Results[0].Thumbnail"/>
+<img height="300" src="@Model.Character.Thumbnail.Path.@Model.Character.Thumbnail.Extension" class="rounded mx-auto d-block" alt="Imagem não encontrada">
 
-<p>Description: @Model.Data.Results[0].Description</p>
+<p class="font-weight-normal">@Model.Character.Description</p>
 
-<p>Comics: @Model.Data.Results[0].Comics</p>
+<p class="font-weight-bold">Alguns títulos:</p>
 
+<table class="table" style="width:100%">
+    <tbody>
+        @foreach (var comic in Model.ComicList)
+        {
+            <tr>
+                <th>
+                    <img height="150" src="@comic.Thumbnail.Path.@comic.Thumbnail.Extension" class="rounded float-left" alt="Imagem não encontrada">
+                </th>
+                <td>
+                    @comic.Title: @comic.Description
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

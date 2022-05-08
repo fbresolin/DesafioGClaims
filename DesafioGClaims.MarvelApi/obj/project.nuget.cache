@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CeMkrdchmn261PAVFBI6997PsnsxHZmdTWmckSBaYE7nJfFGwGpLkOrJBEQpGSI3kVhJ7OaVUwDmoeMl480yPA==",
+  "dgSpecHash": "kliougP84fq4Rzzd1+n7CyRLtf15vNoUHqtEc+ebuJT/cRm30o5jgsOgoQ0oBPiDyJ1Z3blhVr6SQz5UZBUJFg==",
   "success": true,
-  "projectFilePath": "D:\\Users\\breso\\Documents\\DesafioGClaims\\DesafioGClaims.MarvelApi\\DesafioGClaims.MarvelApi.csproj",
+  "projectFilePath": "C:\\Users\\breso\\DesafioGClaims\\DesafioGClaims.MarvelApi\\DesafioGClaims.MarvelApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\breso\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],

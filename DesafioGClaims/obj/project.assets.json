@@ -1606,11 +1606,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\breso\\Documents\\DesafioGClaims\\DesafioGClaims\\DesafioGClaims.csproj",
+      "projectUniqueName": "C:\\Users\\breso\\DesafioGClaims\\DesafioGClaims\\DesafioGClaims.csproj",
       "projectName": "DesafioGClaims",
-      "projectPath": "D:\\Users\\breso\\Documents\\DesafioGClaims\\DesafioGClaims\\DesafioGClaims.csproj",
+      "projectPath": "C:\\Users\\breso\\DesafioGClaims\\DesafioGClaims\\DesafioGClaims.csproj",
       "packagesPath": "C:\\Users\\breso\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\breso\\Documents\\DesafioGClaims\\DesafioGClaims\\obj\\",
+      "outputPath": "C:\\Users\\breso\\DesafioGClaims\\DesafioGClaims\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\breso\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1627,14 +1627,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Users\\breso\\Documents\\DesafioGClaims\\DesafioGClaims.DataService\\DesafioGClaims.DataService.csproj": {
-              "projectPath": "D:\\Users\\breso\\Documents\\DesafioGClaims\\DesafioGClaims.DataService\\DesafioGClaims.DataService.csproj"
+            "C:\\Users\\breso\\DesafioGClaims\\DesafioGClaims.DataService\\DesafioGClaims.DataService.csproj": {
+              "projectPath": "C:\\Users\\breso\\DesafioGClaims\\DesafioGClaims.DataService\\DesafioGClaims.DataService.csproj"
             },
-            "D:\\Users\\breso\\Documents\\DesafioGClaims\\DesafioGClaims.Entities\\DesafioGClaims.Entities.csproj": {
-              "projectPath": "D:\\Users\\breso\\Documents\\DesafioGClaims\\DesafioGClaims.Entities\\DesafioGClaims.Entities.csproj"
+            "C:\\Users\\breso\\DesafioGClaims\\DesafioGClaims.Entities\\DesafioGClaims.Entities.csproj": {
+              "projectPath": "C:\\Users\\breso\\DesafioGClaims\\DesafioGClaims.Entities\\DesafioGClaims.Entities.csproj"
             },
-            "D:\\Users\\breso\\Documents\\DesafioGClaims\\DesafioGClaims.MarvelApi\\DesafioGClaims.MarvelApi.csproj": {
-              "projectPath": "D:\\Users\\breso\\Documents\\DesafioGClaims\\DesafioGClaims.MarvelApi\\DesafioGClaims.MarvelApi.csproj"
+            "C:\\Users\\breso\\DesafioGClaims\\DesafioGClaims.MarvelApi\\DesafioGClaims.MarvelApi.csproj": {
+              "projectPath": "C:\\Users\\breso\\DesafioGClaims\\DesafioGClaims.MarvelApi\\DesafioGClaims.MarvelApi.csproj"
             }
           }
         }

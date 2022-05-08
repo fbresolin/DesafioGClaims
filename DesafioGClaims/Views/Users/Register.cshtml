@@ -17,7 +17,6 @@
         @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Password)
     </div>
-    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Registrar</button>
 }
 

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\breso\\Documents\\DesafioGClaims\\DesafioGClaims.Entities\\DesafioGClaims.Entities.csproj",
+      "projectUniqueName": "C:\\Users\\breso\\DesafioGClaims\\DesafioGClaims.Entities\\DesafioGClaims.Entities.csproj",
       "projectName": "DesafioGClaims.Entities",
-      "projectPath": "D:\\Users\\breso\\Documents\\DesafioGClaims\\DesafioGClaims.Entities\\DesafioGClaims.Entities.csproj",
+      "projectPath": "C:\\Users\\breso\\DesafioGClaims\\DesafioGClaims.Entities\\DesafioGClaims.Entities.csproj",
       "packagesPath": "C:\\Users\\breso\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\breso\\Documents\\DesafioGClaims\\DesafioGClaims.Entities\\obj\\",
+      "outputPath": "C:\\Users\\breso\\DesafioGClaims\\DesafioGClaims.Entities\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\breso\\AppData\\Roaming\\NuGet\\NuGet.Config",

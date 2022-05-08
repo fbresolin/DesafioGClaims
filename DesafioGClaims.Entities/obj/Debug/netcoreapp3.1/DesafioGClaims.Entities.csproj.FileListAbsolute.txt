@@ -8,3 +8,13 @@ D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.Entities\obj\Debug\netcor
 D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.Entities\obj\Debug\netcoreapp3.1\DesafioGClaims.Entities.csproj.CoreCompileInputs.cache
 D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.Entities\obj\Debug\netcoreapp3.1\DesafioGClaims.Entities.dll
 D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.Entities\obj\Debug\netcoreapp3.1\DesafioGClaims.Entities.pdb
+C:\Users\breso\DesafioGClaims\DesafioGClaims.Entities\bin\Debug\netcoreapp3.1\DesafioGClaims.Entities.deps.json
+C:\Users\breso\DesafioGClaims\DesafioGClaims.Entities\bin\Debug\netcoreapp3.1\DesafioGClaims.Entities.dll
+C:\Users\breso\DesafioGClaims\DesafioGClaims.Entities\bin\Debug\netcoreapp3.1\DesafioGClaims.Entities.pdb
+C:\Users\breso\DesafioGClaims\DesafioGClaims.Entities\obj\Debug\netcoreapp3.1\DesafioGClaims.Entities.csproj.AssemblyReference.cache
+C:\Users\breso\DesafioGClaims\DesafioGClaims.Entities\obj\Debug\netcoreapp3.1\DesafioGClaims.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\breso\DesafioGClaims\DesafioGClaims.Entities\obj\Debug\netcoreapp3.1\DesafioGClaims.Entities.AssemblyInfoInputs.cache
+C:\Users\breso\DesafioGClaims\DesafioGClaims.Entities\obj\Debug\netcoreapp3.1\DesafioGClaims.Entities.AssemblyInfo.cs
+C:\Users\breso\DesafioGClaims\DesafioGClaims.Entities\obj\Debug\netcoreapp3.1\DesafioGClaims.Entities.csproj.CoreCompileInputs.cache
+C:\Users\breso\DesafioGClaims\DesafioGClaims.Entities\obj\Debug\netcoreapp3.1\DesafioGClaims.Entities.dll
+C:\Users\breso\DesafioGClaims\DesafioGClaims.Entities\obj\Debug\netcoreapp3.1\DesafioGClaims.Entities.pdb

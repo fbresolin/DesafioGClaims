@@ -11,3 +11,16 @@ D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.DataService\obj\Debug\net
 D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.DataService\obj\Debug\netcoreapp3.1\DesafioGClaims.DataService.csproj.CopyComplete
 D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.DataService\obj\Debug\netcoreapp3.1\DesafioGClaims.DataService.dll
 D:\Users\breso\Documents\DesafioGClaims\DesafioGClaims.DataService\obj\Debug\netcoreapp3.1\DesafioGClaims.DataService.pdb
+C:\Users\breso\DesafioGClaims\DesafioGClaims.DataService\bin\Debug\netcoreapp3.1\DesafioGClaims.DataService.deps.json
+C:\Users\breso\DesafioGClaims\DesafioGClaims.DataService\bin\Debug\netcoreapp3.1\DesafioGClaims.DataService.dll
+C:\Users\breso\DesafioGClaims\DesafioGClaims.DataService\bin\Debug\netcoreapp3.1\DesafioGClaims.DataService.pdb
+C:\Users\breso\DesafioGClaims\DesafioGClaims.DataService\bin\Debug\netcoreapp3.1\DesafioGClaims.Entities.dll
+C:\Users\breso\DesafioGClaims\DesafioGClaims.DataService\bin\Debug\netcoreapp3.1\DesafioGClaims.Entities.pdb
+C:\Users\breso\DesafioGClaims\DesafioGClaims.DataService\obj\Debug\netcoreapp3.1\DesafioGClaims.DataService.csproj.AssemblyReference.cache
+C:\Users\breso\DesafioGClaims\DesafioGClaims.DataService\obj\Debug\netcoreapp3.1\DesafioGClaims.DataService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\breso\DesafioGClaims\DesafioGClaims.DataService\obj\Debug\netcoreapp3.1\DesafioGClaims.DataService.AssemblyInfoInputs.cache
+C:\Users\breso\DesafioGClaims\DesafioGClaims.DataService\obj\Debug\netcoreapp3.1\DesafioGClaims.DataService.AssemblyInfo.cs
+C:\Users\breso\DesafioGClaims\DesafioGClaims.DataService\obj\Debug\netcoreapp3.1\DesafioGClaims.DataService.csproj.CoreCompileInputs.cache
+C:\Users\breso\DesafioGClaims\DesafioGClaims.DataService\obj\Debug\netcoreapp3.1\DesafioGClaims.DataService.csproj.CopyComplete
+C:\Users\breso\DesafioGClaims\DesafioGClaims.DataService\obj\Debug\netcoreapp3.1\DesafioGClaims.DataService.dll
+C:\Users\breso\DesafioGClaims\DesafioGClaims.DataService\obj\Debug\netcoreapp3.1\DesafioGClaims.DataService.pdb
