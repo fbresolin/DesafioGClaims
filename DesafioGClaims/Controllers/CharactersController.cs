@@ -31,7 +31,9 @@ namespace DesafioGClaims.Controllers
             var indexViewModel = new IndexCharViewModel();
 
             var characterWrapper = await _characters.GetCharacters();
-            indexViewModel.GeneralCharacters = characterWrapper.Data.Results;
+
+            if (characterWrapper != null)
+                indexViewModel.GeneralCharacters = characterWrapper.Data.Results;
             
             var userId = _userAuth.GetUserId(User.Identity.Name);
             var favoriteIds = await _favoriteChar.GetFavorites(userId);
@@ -40,14 +42,16 @@ namespace DesafioGClaims.Controllers
             {
                 indexViewModel.GeneralCharacters
                     .RemoveAll(c => c.Id == favoriteId);
-                var favCharacter = await _characters.GetCharacter(favoriteId);
-                indexViewModel.FavoriteCharacters
-                    .Add(favCharacter.Data.Results.First());
+
+                var favCharacterWrapper = await _characters.GetCharacter(favoriteId);
+
+                if (favCharacterWrapper != null)
+                    indexViewModel.FavoriteCharacters
+                        .Add(favCharacterWrapper.Data.Results.First());
             };
-            if (favoriteIds.Count > 0)
-                indexViewModel.FavoriteCharacters
-                    .Sort((x, y) => x.Name
-                    .CompareTo(y.Name));
+            indexViewModel.FavoriteCharacters
+                .Sort((x, y) => x.Name
+                .CompareTo(y.Name));
 
             return View(indexViewModel);
         }
@@ -57,7 +61,9 @@ namespace DesafioGClaims.Controllers
             var indexViewModel = new IndexCharViewModel();
 
             var characterWrapper = await _characters.SearchCharacter(searchString);
-            indexViewModel.GeneralCharacters = characterWrapper.Data.Results;
+
+            if (characterWrapper != null)
+                indexViewModel.GeneralCharacters = characterWrapper.Data.Results;
 
             return View("Index", indexViewModel);
         }

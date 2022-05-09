@@ -32,7 +32,7 @@ namespace DesafioGClaims.Controllers
         public IActionResult Register(UserFormViewModel userForm)
         {
             if (!ModelState.IsValid)
-                return View(new UserFormViewModel{ Message = "Usuário inválido" });
+                return View(new UserFormViewModel{ Message = "Dados inválidos" });
 
             if (_userAuth.IsRegistered(userForm.Username))
                 return View(new UserFormViewModel{ Message = "Usuário já existe" });
@@ -52,7 +52,7 @@ namespace DesafioGClaims.Controllers
         public async Task<IActionResult> Login(UserFormViewModel userLogin)
         {
             if (!ModelState.IsValid)
-                return View(new UserFormViewModel { Message = "Usuário inválido" });
+                return View(new UserFormViewModel { Message = "Dados inválidos" });
 
             if (!_userAuth.IsRegistered(userLogin.Username))
                 return View(new UserFormViewModel { Message = "Usuário não registrado" });

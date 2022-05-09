@@ -31,13 +31,23 @@ namespace DesafioGClaims.MarvelApi.MarvelApi
 
             var uri = new Uri(requestUrl);
 
-            return await _client.GetAsync(uri);
+            var httpResponse = new HttpResponseMessage();
+            try
+            {
+                httpResponse = await _client.GetAsync(uri);
+            }
+            catch (Exception ex)
+            {
+                httpResponse = null;
+                Console.WriteLine($"Ocorreu um problema na conexão com a API da Marvel, {ex}");
+            }
+            return httpResponse;
         }
         public async Task<CharacterDataWrapper> ExecuteCharRequest(string request, string additionalQuery = "")
         {
             var response = await RequestApiUrl(request, additionalQuery);
 
-            if (!response.IsSuccessStatusCode)
+            if (response == null || !response.IsSuccessStatusCode)
                 return null;
 
             var json = await response.Content.ReadAsStringAsync();
@@ -48,7 +58,7 @@ namespace DesafioGClaims.MarvelApi.MarvelApi
         {
             var response = await RequestApiUrl(request, additionalQuery);
 
-            if (!response.IsSuccessStatusCode)
+            if (response == null || !response.IsSuccessStatusCode)
                 return null;
 
             var json = await response.Content.ReadAsStringAsync();
