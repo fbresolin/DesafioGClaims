@@ -53,6 +53,22 @@ namespace DesafioGClaims.DataService.DataService
             }
         }
 
+        public bool IsFavorite(int UserId, int CharacterId)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = $"SELECT COUNT(userid) FROM characters WHERE (characterid={CharacterId} AND userid={UserId})";
+                    var result = Convert.ToInt32(command.ExecuteScalar());
+                    if (result != 0)
+                        return true;
+                    return false;
+                }
+            }
+        }
+
         public bool UnFavoriteChar(int UserId, int CharacterId)
         {
             using (var connection = new SqlConnection(ConnectionString))

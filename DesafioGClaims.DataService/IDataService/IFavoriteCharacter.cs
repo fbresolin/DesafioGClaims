@@ -10,5 +10,6 @@ namespace DesafioGClaims.DataService.IDataService
         bool FavoriteChar(int UserId, int CharacterId);
         bool UnFavoriteChar(int UserId, int CharacterId);
         Task<List<int>> GetFavorites(int UserId);
+        bool IsFavorite(int UserId, int CharacterId);
     }
 }

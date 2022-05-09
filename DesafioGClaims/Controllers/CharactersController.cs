@@ -10,6 +10,7 @@ using System;
 
 namespace DesafioGClaims.Controllers
 {
+    [Authorize]
     public class CharactersController : Controller
     {
         private readonly ICharacters _characters;
@@ -24,13 +25,9 @@ namespace DesafioGClaims.Controllers
             _userAuth = userAuth;
             _favoriteChar = favoriteChar;
         }
-        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Login");
-
             var indexViewModel = new IndexCharViewModel();
 
             var characterWrapper = await _characters.GetCharacters();
@@ -54,13 +51,9 @@ namespace DesafioGClaims.Controllers
 
             return View(indexViewModel);
         }
-        [Authorize]
         [HttpGet]
         public async Task<IActionResult> SearchCharacters(string searchString)
         {
-            if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Login");
-
             var indexViewModel = new IndexCharViewModel();
 
             var characterWrapper = await _characters.SearchCharacter(searchString);
@@ -68,13 +61,9 @@ namespace DesafioGClaims.Controllers
 
             return View("Index", indexViewModel);
         }
-        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Details(int characterId)
         {
-            if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Login");
-
             var characterWrapper = await _characters.GetCharacter(characterId);
 
             if (characterWrapper == null)
@@ -89,27 +78,23 @@ namespace DesafioGClaims.Controllers
                 characterViewModel.ComicList.Add(comicWrapper.Data.Results[i]);
             };
 
+            var userId = _userAuth.GetUserId(User.Identity.Name);
+            characterViewModel.IsFavorite = _favoriteChar.IsFavorite(userId, characterId);
+
             return View(characterViewModel);
         }
-        [Authorize]
         [HttpPost]
         public IActionResult Favorite(int characterId)
         {
-            if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Login");
-
             var userId = _userAuth.GetUserId(User.Identity.Name);
             _favoriteChar.FavoriteChar(userId, characterId);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", new { characterId = characterId });
         }
-        [Authorize]
+        
         [HttpPost]
         public IActionResult UnFavorite(int characterId)
         {
-            if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Login");
-
             var userId = _userAuth.GetUserId(User.Identity.Name);
             _favoriteChar.UnFavoriteChar(userId, characterId);
 

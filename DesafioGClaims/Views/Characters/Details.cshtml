@@ -5,6 +5,29 @@
 
 <h2 class="h2">Personagem: @Model.Character.Name</h2>
 
+@if (@Model.IsFavorite)
+{
+    @using (Html.BeginForm(
+        actionName:"UnFavorite",
+        controllerName:"Characters",
+        routeValues:  new { characterId = @Model.Character.Id }, 
+        FormMethod.Post))
+    {
+        <button>Desfavoritar</button>
+    }
+}
+else
+{
+    @using (Html.BeginForm(
+        actionName:"Favorite",
+        controllerName:"Characters",
+        routeValues:  new { characterId = @Model.Character.Id }, 
+        FormMethod.Post))
+    {
+        <button>Favoritar</button>
+    }
+}
+
 <img height="300" src="@Model.Character.Thumbnail.Path.@Model.Character.Thumbnail.Extension" class="rounded mx-auto d-block" alt="Imagem não encontrada">
 
 <p class="font-weight-normal">@Model.Character.Description</p>
