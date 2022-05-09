@@ -1,7 +1,7 @@
 # DesafioGClaims
 
 Guia para rodar a aplicação:
-- Para implementar o database deve ser rodado o script "DesafioGClaimsDb.sql" que está na raiz do diretório;
+- Para implementar o database deve ser rodado o script "DesafioGClaimsDb.sql" que está na raiz do diretório (exportado do Microsoft Sql Server Server Management Studio);
 - É necessário fazer um cadastro para visualizar os personagens e realizar ações na aplicação;
 
 Esta aplicação utiliza o .Net Core 3.1 e o Sql Server. Para lidar com o banco de dados da aplicação eu utilizei comandos Sql.
